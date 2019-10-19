@@ -5,26 +5,26 @@
 <title>合并function，函数传参</title>
 	<style>
 		#div1{
-			width: 100px;
-			height: 100px;
+			width: 200px;
+			height: 200px;
 			background-color: antiquewhite;
 		}
 	</style>
 	<script>
-		function changeColor(){
+		function changeColor(color){
 			var oDiv=document.getElementById('div1');
-			oDiv.style.backgroundColor='';
+			oDiv.style.backgroundColor='color';
 		}
 	</script>
 </head>
 
 <body>
 	<input type="button" value="toGreen"
-		   onClick="changeColor()"/>
+		   onClick="changeColor(green)"/>
 	<input type="button" value="toYellow"
-		   onClick="changeColor()"/>
+		   onClick="changeColor(yellow)"/>
 	<input type="button" value="toBlack"
-		   onClick="changeColor()"/>
+		   onClick="changeColor(black)"/>
 	<div id="div1">
 	</div>
 </body>
