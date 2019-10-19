@@ -2,9 +2,36 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>无标题文档</title>
+<title>提取行间事件</title>
+	
+	<script>
+		window.onload=function()
+		{
+			var oBtn=document.getElementById('btn1');
+			
+			oBtn.onclick=function()
+			{
+							alert('a');
+			};
+		};
+	</script>
 </head>
 
 <body>
+	<input id="btn1" type="button" value="按钮"/>
+	
+<!--
+//		var oBtn=document.getElementById('btn1');
+//		function abc(){
+//			alert('a');
+//		}
+		//函数没有名字成为匿名函数	
+//		oBtn.onclick=abc;
+//		oBtn.onclick=function () {
+//						alert('a');
+//					}
+-->
+
+	
 </body>
 </html>
