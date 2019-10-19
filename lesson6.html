@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>合并function</title>
+	<style>
+		#div1{
+			width: 100px;
+			height: 100px;
+			background-color: antiquewhite;
+		}
+	</style>
+	<script>
+		function changeColor(){
+			var oDiv=document.getElementById('div1');
+			oDiv.style.backgroundColor='';
+		}
+	</script>
+</head>
+
+<body>
+	<input type="button" value="toGreen"
+		   onClick="changeColor()"/>
+	<input type="button" value="toYellow"
+		   onClick="changeColor()"/>
+	<input type="button" value="toBlack"
+		   onClick="changeColor()"/>
+	<div id="div1">
+	</div>
+</body>
+</html>
