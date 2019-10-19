@@ -8,23 +8,24 @@
 			width: 200px;
 			height: 200px;
 			background-color: antiquewhite;
+			margin-top: 5px;
 		}
 	</style>
 	<script>
 		function changeColor(color){
 			var oDiv=document.getElementById('div1');
-			oDiv.style.backgroundColor='color';
+			oDiv.style.background=color;
 		}
 	</script>
 </head>
 
 <body>
 	<input type="button" value="toGreen"
-		   onClick="changeColor(green)"/>
+		   onClick="changeColor('green')"/>
 	<input type="button" value="toYellow"
-		   onClick="changeColor(yellow)"/>
+		   onClick="changeColor('yellow')"/>
 	<input type="button" value="toBlack"
-		   onClick="changeColor(black)"/>
+		   onClick="changeColor('black')"/>
 	<div id="div1">
 	</div>
 </body>
