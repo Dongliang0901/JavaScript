@@ -21,6 +21,18 @@
 		//假：false，数字零，空字符串，空对象，undefined
 		var json={a: 12, b: 5, c: 'abc'};
 		alert(json.c);
+		/*json与array的区别：
+			json：下标是字符串，没有length
+			json的循环:
+			for(var i in json)
+			{
+				alert('第'+i+'个东西：'+json[i]);
+			}
+			array：下标是数字，有length
+			array的两种循环：
+			for(var i=0; i<array.length; i++)
+			for(var i in array)
+		*/
 	</script>
 </head>
 
