@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>课时08</title>
+	<style>
+		#div1 {width:200px;height:200px;background:red;}
+	</style>
+	<script>
+		/*function sum(){
+//			arguments是一个数组，用来代替传进来的参数
+			var result=0;
+			for(var i=0; i<arguments.length;i++)
+				{
+					result+=arguments[i];
+				}
+			return result;
+		}
+		alert(sum(1,2,3));
+		*/
+		//style用来获取行间样式，
+		//currentStyle(IE)和getComputedStyle(Chrome和FireFox)用来获取非行间样式		
+		function getStyle(obj, name)
+		{
+			if(obj.currentStyle)
+				{
+					return obj.currentStyle[name];
+				}
+			else
+				{
+					return getComputedStyle(obj,null)[name];
+				}
+		}
+		
+		window.onload=function ()
+		{
+			var oDiv=document.getElementById('div1');
+			/*
+			//IE
+			alert(oDiv.currentStyle.width);
+			//Chrome和FireFox：第二个参数任意值
+			alter(getComputedStyle(oDiv,null).width);
+			*/
+			/*
+			if(oDiv.currentStyle)
+				{
+					alert(oDiv.currentStyle.width);
+				}
+			else
+				{
+					alert(getComputedStyle(oDiv,null).width);
+				}
+			*/
+//			alert(getStyle(oDiv,'width'));
+			//复合样式：background，border
+			//单一样式：width，height，position
+//			alert(getStyle(oDiv,'background'));//取不到背景颜色
+//			alert(getStyle(oDiv,'backgroundColor'));
+			var arr=[1,2,3,4];
+			arr.length=0//快速清空数组
+		}
+	</script>
+</head>
+
+<body>
+	<div id="div1">
+	</div>
+</body>
+</html>
