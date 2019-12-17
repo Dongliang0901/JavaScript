@@ -3,8 +3,63 @@
 <head>
 <meta charset="utf-8">
 <title>课时09</title>
+<style>
+	body{
+		font-size: 50px;
+		margin: 0;
+	}
+	img{
+		width: 40px;
+		height: 40px;
+		margin: 0;
+	}	
+</style>
+<script>
+	//空位补0
+	function toDou(n)
+	{
+		if (n<10)
+		{
+			return '0'+n;
+		}
+		else
+		{
+			return ''+n;
+		}
+	}
+	
+	window.onload=function()
+	{
+		var aImg = document.getElementsByTagName('img');
+		//每隔1秒自动刷新
+		function clock()
+	    {
+			var oDate = new Date();
+			//字符串连接
+			var str = toDou(oDate.getHours())+toDou(oDate.getMinutes())+toDou(oDate.getSeconds());
+
+			for(var i=0;i<aImg.length;i++)
+			{
+				//使用charAt()来解决字符串读取的不兼容问题
+				aImg[i].src='timeimage/'+str.charAt(i)+'.webp';
+			}
+		}
+		setInterval(clock, 1000);
+		clock();
+	}
+</script>
 </head>
 
 <body>
+	<img src="timeimage/0.webp" />
+	<img src="timeimage/0.webp" />
+	:
+	<img src="timeimage/0.webp" />
+	<img src="timeimage/0.webp" />
+	:
+	<img src="timeimage/0.webp" />
+	<img src="timeimage/0.webp" />
+	
+
 </body>
 </html>
