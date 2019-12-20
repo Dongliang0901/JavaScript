@@ -5,9 +5,10 @@
 <title>课时10</title>
 	<style>
 		* {margin: 0; padding: 0;}
-		#div1 {width: 900px; height: 168px; margin: 100px auto; position: relative; background: red; overflow: hidden;}
+		#div1 {width: 712px; height: 108px; margin: 100px auto; position: relative; background: red; overflow: hidden;}
+/*		hidden执行不了*/
 		#div1 ul {position: absolute; left: 0; top: 0;}
-		#div1 ul li {float: left; width: 300px; height: 168px; list-style: none;}
+		#div1 ul li {float: left; width: 178px; height: 108px; list-style: none;}
 	</style>
 	<script>
 		window.onload=function()
@@ -15,6 +16,7 @@
 			var oDiv=document.getElementById('div1');
 			var oUl=document.getElementsByTagName('ul')[0];
 			var aLi=document.getElementsByTagName('li');
+			
 			
 			var speed=2;
 			
