@@ -12,7 +12,12 @@
 	{
 		var oUl=document.getElementById('ul1');
 		//childNodes包括元素节点和文本节点，children只包括元素节点
-		alert(oUl.childNodes.length);
+//		alert(oUl.childNodes.length);
+		//parentNode 获取父节点
+		//offsetParent
+		//firstchild,lastchild 首尾子节点，有兼容问题（IE9以上）
+		//firstElementchild,lastElementchild 首尾子节点，有兼容问题（IE9以下）
+		//用if来判断
 		for(var i=0; i<oUl.childNodes.length; i++)
 			{
 				if(oUl.childNodes[i].nodeType==1)
@@ -25,6 +30,11 @@
 	}
 	</script>
 </head>
+<!--	DOM方式操作元素属性：
+		获取：getAttribute(名称)
+		设置：setAttribute(名称，值)
+		删除：removeAttribute(名称)
+-->
 
 <body>
 	<ul id="ul1">
