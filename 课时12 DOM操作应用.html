@@ -9,6 +9,16 @@
 			var oBtn=document.getElementById('btn1');
 			var oUl=document.getElementById('ul1');
 			var oTxt=document.getElementById('txt1');
+			var aA=document.getElementsByTagName('a');
+			
+			for(var i=0; i<aA.length; i++)
+				{
+					aA[i].onclick=function()
+					{
+						oUl.removeChild(this.parentNode);
+					};
+					
+				}
 			
 			oBtn.onclick=function()
 			{
@@ -39,6 +49,10 @@
 	<input id="txt1" type="text" />
 	<input id="btn1" type="button" value="创建li" />
 	<ul id="ul1">
+		<li>asjlkjk<a href="javascript:;">删除</a></li>
+		<li>aefsdf<a href="javascript:;">删除</a></li>
+		<li>13f<a href="javascript:;">删除</a></li>
+		<li>thgn<a href="javascript:;">删除</a></li>
 	</ul>
 </body>
 </html>
