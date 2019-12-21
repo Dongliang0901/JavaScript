@@ -14,11 +14,22 @@
 			{
 				//首先crate，然后appendchild到相应的父节点下
 				var oLi=document.createElement('li');
+				var aLi=document.getElementsByTagName('li');
 				
 				oLi.innerHTML=oTxt.value;
 				//父级.appendChild(子节点),添加到末尾
+//				oUl.appendChild(oLi);
 				//父级.insertBefore(子节点，之前之前)
-				oUl.appendChild(oLi);
+				//解决length为空时的报错，有元素时插到最前面，没有时直接append
+				if(aLi.length>0)
+					{
+						oUl.insertBefore(oLi, aLi[0]);
+					}
+				else
+					{
+						oUl.appendChild(oLi);
+					}
+				
 			};
 		};
 	</script>
