@@ -3,8 +3,30 @@
 <head>
 <meta charset="utf-8">
 <title>课时12</title>
+	<script>
+		window.onload=function()
+		{
+			var oBtn=document.getElementById('btn1');
+			var oUl=document.getElementById('ul1');
+			var oTxt=document.getElementById('txt1');
+			
+			oBtn.onclick=function()
+			{
+				//首先crate，然后appendchild到相应的父节点下
+				var oLi=document.createElement('li');
+				
+				oLi.innerHTML=oTxt.value;
+				//父级.appendChild(子节点)
+				oUl.appendChild(oLi);
+			};
+		};
+	</script>
 </head>
-
+<!--创建、插入和删除元素-->
 <body>
+	<input id="txt1" type="text" />
+	<input id="btn1" type="button" value="创建li" />
+	<ul id="ul1">
+	</ul>
 </body>
 </html>
