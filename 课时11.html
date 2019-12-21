@@ -3,8 +3,31 @@
 <head>
 <meta charset="utf-8">
 <title>课时11</title>
+	<style>
+	
+	</style>
+	<script>
+	window.onload=function()
+	{
+		var oUl=document.getElementById('ul1');
+		alert(oUl.childNodes.length);
+		for(var i=0; i<oUl.childNodes.length; i++)
+			{
+				if(oUl.childNodes[i].nodeType==1)
+					{
+						//nodeType==1 元素节点
+						//nodeType==3 文本节点
+						oUl.childNodes[i].style.background='red';
+					}
+			}
+	}
+	</script>
 </head>
 
 <body>
+	<ul id="ul1">
+		<li></li>
+		<li></li>
+	</ul>
 </body>
 </html>
