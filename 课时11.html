@@ -7,9 +7,11 @@
 	
 	</style>
 	<script>
+	//子节点只包括第一层
 	window.onload=function()
 	{
 		var oUl=document.getElementById('ul1');
+		//childNodes包括元素节点和文本节点，children只包括元素节点
 		alert(oUl.childNodes.length);
 		for(var i=0; i<oUl.childNodes.length; i++)
 			{
