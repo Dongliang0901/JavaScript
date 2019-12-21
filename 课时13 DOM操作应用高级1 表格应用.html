@@ -9,12 +9,78 @@
 			var oTab=document.getElementById('tab1');
 			var oldColor='';
 			
+			var oBtn1=document.getElementById('btn1');
+			var oBtn2=document.getElementById('btn2');
+			var oName=document.getElementById('name');
+			var oAge=document.getElementById('age');
+			var id=oTab.tBodies[0].rows.length+1;
+			
+			oBtn1.onclick=function()
+			{
+				var oTr=document.createElement('tr');
+				
+				var oTd=document.createElement('td');
+				if(id<10)
+				{
+					oTd.innerHTML='0'+id;
+					id++;
+				}
+				else
+				{
+					oTd.innerHTML=id++;
+				}
+				oTr.appendChild(oTd);
+				
+				var oTd=document.createElement('td');
+				oTd.innerHTML=oName.value;
+				oTr.appendChild(oTd);
+				
+				var oTd=document.createElement('td');
+				oTd.innerHTML=oAge.value;
+				oTr.appendChild(oTd);
+				
+				var oTd=document.createElement('td');
+				oTd.innerHTML='<a href="javascript:;">删除</a>';
+				oTr.appendChild(oTd);
+				
+				oTd.getElementsByTagName('a')[0].onclick=function()
+				{
+					oTab.tBodies[0].removeChild(this.parentNode.parentNode);
+				};
+				
+				oTab.tBodies[0].appendChild(oTr);
+				
+			};
+			
+			oBtn2.onclick=function()
+			{
+				for(var i=0; i<oTab.tBodies[0].rows.length; i++)
+					{
+						var sTab=oTab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+						var sName=oName.value.toLowerCase();
+						
+						var arr=sName.split(' ');
+						//模糊搜索：search（），没有匹配的返回-1
+						
+						oTab.tBodies[0].rows[i].style.background='';
+						
+						for(var j=0; j<arr.length; j++)
+						{
+							if(sTab.search(arr[j])!=-1)
+							{
+								oTab.tBodies[0].rows[i].style.background='yellow';
+							}
+						}						
+					}
+			};
+			
 			//oTab.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[1].getElementsByTagName('td')[1].innerHTML;
 			
 			//oTab.tBodies[0].rows[1].cells[1].innerHTML;
 			
-			
-			for(var i=0; i<oTab.tBodies[0].rows.length; i++)
+			function addColor()
+			{
+				for(var i=0; i<oTab.tBodies[0].rows.length; i++)
 				{
 					oTab.tBodies[0].rows[i].onmouseover=function()
 					{
@@ -36,42 +102,59 @@
 						oTab.tBodies[0].rows[i].style.background='#CCC';
 					}
 				}
+			}
+			
+//			setInterval(addColor,10);
+//			
+			addColor();
+			
 		}
 	</script>
 </head>
 
 <body>
+	姓名：<input id="name" type="text" />
+	年龄：<input id="age" type="text" />
+	<input id="btn1" type="button" value="添加" />
+	<input id="btn2" type="button" value="搜索" />
+	
 	<table id="tab1" border="1" width="500">
 		<thead>
 			<td>ID</td>
 			<td>姓名</td>
 			<td>年龄</td>
+			<td>操作</td>
 		</thead>
 		<tbody>
 			<tr>
 				<td>01</td>
 				<td>qqq</td>
 				<td>21</td>
+				<td></td>
 			</tr>
 			<tr>
 				<td>02</td>
 				<td>www</td>
 				<td>22</td>
+				<td></td>
 			</tr>
 			<tr>
 				<td>03</td>
 				<td>eee</td>
 				<td>23</td>
+				<td></td>
 			</tr>
 			<tr>
 				<td>04</td>
 				<td>rrr</td>
 				<td>24</td>
+				<td></td>
 			</tr>
 			<tr>
 				<td>05</td>
 				<td>ttt</td>
 				<td>25</td>
+				<td></td>
 			</tr>
 		</tbody>
 	
