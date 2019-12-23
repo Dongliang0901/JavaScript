@@ -29,8 +29,9 @@
                 }
                 if(Math.abs(iTarget-oDiv.offsetLeft)<=Math.abs(speed))
                 {
-                   oDiv.style.left=iTarget;
-                   clearInterval(timer);
+                   
+                    clearInterval(timer);
+                    oDiv.style.left=iTarget+'px';
                 }
                 else
                 {
