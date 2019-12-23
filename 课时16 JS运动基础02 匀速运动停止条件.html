@@ -3,8 +3,50 @@
 <head>
 <meta charset="utf-8">
 <title>课时16 JS运动基础02 匀速运动停止条件</title>
+    <style>
+        #div1 {width: 100px; height: 100px; background: red; position: absolute; left: 600px; top: 50px;}
+        #div2 {width: 1px; height: 300px; position: absolute; left: 300px; top: 0; background: black;}
+        #div3 {width: 1px; height: 300px; position: absolute; left: 100px; top: 0; background: black;}
+    </style>
+    <script>
+        function startMove(iTarget)
+        {
+            var oDiv=document.getElementById('div1');
+            var timer=null;
+            
+            clearInterval(timer);
+            
+            timer=setInterval(function(){
+                var speed=0;
+                
+                if(oDiv.offsetLeft<iTarget)
+                {
+                    speed=7;
+                }
+                else
+                {
+                    speed=-7;
+                }
+                if(Math.abs(iTarget-oDiv.offsetLeft)<=Math.abs(speed))
+                {
+                   oDiv.style.left=iTarget;
+                   clearInterval(timer);
+                }
+                else
+                {
+                    oDiv.style.left=oDiv.offsetLeft+speed+'px';
+                }
+                
+            }, 30);
+        }
+    </script>
 </head>
 
 <body>
+    <input type="button" value="运动到100px" onClick="startMove(100)" />
+    <input type="button" value="运动到300px" onClick="startMove(300)" />
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
 </body>
 </html>
