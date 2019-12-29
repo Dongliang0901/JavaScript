@@ -44,9 +44,29 @@
                    
                     now=this.inedx; 
                     aLiBig[this.index].style.zIndex=nowZIndex++;
+                    
+                    for(var i=0; i<aLiSmall.length; i++)
+                        {
+                            startMove(aLiSmall[i], 'opacity', 100);
+                        }
+                    startMove(this, 'opacity', 100);
                     aLiBig[this.index].style.height=0;
                     startMove(aLiBig[this.index], 'height', 320);
                 };
+                
+                aLiSmall[i].onmouseover=function()
+                {
+                    startMove(this, 'opacity', 100);
+                }
+                
+                aLiSmall[i].onmouseout=function()
+                {
+                    if(this.index!=now)
+                    {
+                         startMove(this, 'opacity', 60);
+                    }
+                   
+                }
             }
             
             
