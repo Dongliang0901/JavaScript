@@ -3,9 +3,65 @@
 <head>
 <meta charset="utf-8">
 <title>课时18 JS运动应用02 仿flash图片展示</title>
+    <script src="move.js"></script>
+    <script>
+        function getByClass(oParent, sClass)
+        {
+            var aEle=oParent.getElementsByTagName('*');
+            var aResult=[];
+            
+            for(var i=0; i<aEle.length; i++)
+            {
+                if（aEle[i].className==sClass)
+                {
+                    aResult.push(aEle[i]);
+                }
+            return aResult;
+        }
+        
+        window.onload=function ()
+        {
+            var oDiv=document.getElementById('playimages');
+            var oBtnPrev=getByClass(oDiv, 'prev')[0];
+            var oBtnNext=getByClass(oDiv, 'next')[0];
+            var oMarkLeft=getByClass(oDiv, 'mark_left')[0];
+            var oMarkRight=getByClass(oDiv, 'mark_right')[0];
+            
+            var oDivSmall=getByClass(oDiv, 'small_pic')[0];
+            var aLiSmall=oDivSmall.getElementsByTagName('li');
+        }
+    </script>
 </head>
 
 <body>
+    <div id="playimages" class="play">
+        <ul class="big_pic">
+            <div class="prev"></div>
+            <div class="next"></div>
+            
+            <div class="text">加载图片说明。。。</div>
+            <div class="text">计算图片数量。。。</div>
+            
+            <a class="mark_left" href="javascript:;"></a>
+            <a class="mark_right" href="javascript:;"></a>
+            <div class="bg"></div>
+            
+            <li style="z-index: 1;"><img src="课时10/1.jpg"></li>
+            <li><img src="课时10/2.jpg"></li>
+            <li><img src="课时10/3.jpg"></li>
+            <li><img src="课时10/4.jpg"></li>
+            <li><img src="课时10/5.jpg"></li>
+        </ul>
+    </div>
+    <div class="small_pic">
+        <ul style="width: 390px;">
+            <li style="filter: 100; opacity: 1;"><img src="课时10/1.jpg"></li>
+            <li><img src="课时10/2.jpg"></li>
+            <li><img src="课时10/3.jpg"></li>
+            <li><img src="课时10/4.jpg"></li>
+            <li><img src="课时10/5.jpg"></li>
+        </ul>
+    </div>
 </body>
 </html>
  
