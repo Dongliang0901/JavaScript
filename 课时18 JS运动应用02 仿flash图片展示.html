@@ -29,7 +29,33 @@
             
             var oDivSmall=getByClass(oDiv, 'small_pic')[0];
             var aLiSmall=oDivSmall.getElementsByTagName('li');
-        }
+            
+            var oUlBig=getByClass(oDiv, 'big_pic')[0];
+            var aLiBig=oUlBig.getElementsByTagName('li');
+            
+            var nowZIndex=2;
+            
+            for(var i=0; i<aLiSmall.length; i++)
+            {
+                aLiSmall[i].index=1;
+                aLiSmall[i].onclick=function()
+                {
+                    if(this.index==now) return;
+                   
+                    now=this.inedx; 
+                    aLiBig[this.index].style.zIndex=nowZIndex++;
+                    aLiBig[this.index].style.height=0;
+                    startMove(aLiBig[this.index], 'height', 320);
+                };
+            }
+            
+            
+        };
+        
+        
+        
+        
+        
     </script>
 </head>
 
