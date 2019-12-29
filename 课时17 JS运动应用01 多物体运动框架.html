@@ -3,8 +3,95 @@
 <head>
 <meta charset="utf-8">
 <title>课时17 JS运动应用01 多物体运动框架</title>
+    <style>
+        div {width: 200px; height: 200px; background: red;margin: 20px; float: left; border: 1px solid black;filter: alpha(opacity:30);opacity: 0.3;}
+    </style>
+    <script>
+        function getStyle(obj, name)
+        {
+            if(obj.currentStyle)
+            {
+                return obj.currentStyle[name];
+            }
+            else
+            {
+                return getComputedStyle(obj, false)[name];
+            }
+        }
+        
+        function startMove(obj, attr, iTarget)
+        {
+            clearInterval(obj.timer);
+            obj.timer=setInterval(function(){
+                if(attr=='opacity')
+                    {
+                        var cur=parseFloat(getStyle(obj, attr))*100;
+                    }
+                else
+                    {
+                        var cur=parseInt(getStyle(obj, attr));
+                    }
+                
+                var speed=(iTarget-cur)/6;
+                speed=speed>0?Math.ceil(speed):Math.floor(speed);
+                
+                if(cur==iTarget)
+                {
+                    clearInterval(obj.timer);
+                }
+                else
+                {   
+                    if(attr=='opacity')
+                    {
+                        obj.style.filter='aplha(opacity:'+(cur+speed)+')';
+                        obj.style.opacity=(cur+speed)/100;
+                    }
+                    else
+                    {
+                        obj.style[attr]=cur+speed+'px';
+                    }
+                    
+                }
+            }, 30);
+        }
+        window.onload=function()
+        {
+            var oDiv1=document.getElementById('div1')
+            oDiv1.onmouseover=function()
+            {
+                startMove(this, 'height',400);
+            }
+            oDiv1.onmouseout=function()
+            {
+                startMove(this, 'height',200);
+            }
+            
+            var oDiv2=document.getElementById('div2')
+            oDiv2.onmouseover=function()
+            {
+                startMove(this, 'width',400);
+            }
+            oDiv2.onmouseout=function()
+            {
+                startMove(this, 'width',200);
+            }
+            
+            var oDiv3=document.getElementById('div3')
+            oDiv3.onmouseover=function()
+            {
+                startMove(this, 'opacity',100);
+            }
+            oDiv3.onmouseout=function()
+            {
+                startMove(this, 'opacity',30);
+            }
+        };
+    </script>
 </head>
 
 <body>
+    <div id="div1">height</div>
+    <div id="div2">width</div>
+    <div id="div3">opacity</div>
 </body>
 </html>
